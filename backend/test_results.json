@@ -1,0 +1,366 @@
+{
+  "passed": 45,
+  "total": 45,
+  "results": [
+    {
+      "id": "AUTH-01",
+      "feature": "Dang nhap",
+      "name": "Dang nhap dung",
+      "expect": "200",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "AUTH-02",
+      "feature": "Dang nhap",
+      "name": "Sai mat khau",
+      "expect": "401",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "AUTH-03",
+      "feature": "Dang nhap",
+      "name": "Token hop le",
+      "expect": "role thu_kho",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "DASH-01",
+      "feature": "Dashboard",
+      "name": "Tai dashboard",
+      "expect": "200",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "DASH-02",
+      "feature": "Dashboard",
+      "name": "Khong token",
+      "expect": "401",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "DASH-03",
+      "feature": "Dashboard",
+      "name": "Ky thuat xem",
+      "expect": "orders_running",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "INV-01",
+      "feature": "Ton kho",
+      "name": "Danh sach ton",
+      "expect": "array",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "INV-02",
+      "feature": "Ton kho",
+      "name": "Co canh bao ton thap",
+      "expect": "low_stock field",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "INV-03",
+      "feature": "Ton kho",
+      "name": "FIFO sap xep",
+      "expect": "200",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "STIN-01",
+      "feature": "Nhap kho",
+      "name": "Nhap CCP1 pass",
+      "expect": "pass",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "STIN-02",
+      "feature": "Nhap kho",
+      "name": "Nhap CCP1 fail",
+      "expect": "fail",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "STIN-03",
+      "feature": "Nhap kho",
+      "name": "Lab khong nhap kho",
+      "expect": "403",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "STOUT-01",
+      "feature": "Xuat kho",
+      "name": "Xuat lo pass",
+      "expect": "201",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "STOUT-02",
+      "feature": "Xuat kho",
+      "name": "Chan xuat lo fail",
+      "expect": "400",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "STOUT-03",
+      "feature": "Xuat kho",
+      "name": "Chan vuot ton",
+      "expect": "400",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "PROD-01",
+      "feature": "San xuat",
+      "name": "Tao me SX",
+      "expect": "draft",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "PROD-02",
+      "feature": "San xuat",
+      "name": "Chan start chua duyet",
+      "expect": "400",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "PROD-03",
+      "feature": "San xuat",
+      "name": "Duyet+SX+hoan thanh",
+      "expect": "lo TP",
+      "pass": "TP-20260620-002",
+      "detail": ""
+    },
+    {
+      "id": "LAB-01",
+      "feature": "Lab",
+      "name": "GC CCP1 pass",
+      "expect": "pass",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "LAB-02",
+      "feature": "Lab",
+      "name": "GC CCP1 fail",
+      "expect": "fail",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "LAB-03",
+      "feature": "Lab",
+      "name": "Ky thuat khong nhap lab",
+      "expect": "403",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "TRACE-01",
+      "feature": "Truy xuat",
+      "name": "Truy xuat lo TP",
+      "expect": "co me SX",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "TRACE-02",
+      "feature": "Truy xuat",
+      "name": "Lo khong ton tai",
+      "expect": "404",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "TRACE-03",
+      "feature": "Truy xuat",
+      "name": "Truy xuat lo NVL",
+      "expect": "200",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "YCMH-01",
+      "feature": "YCMH",
+      "name": "Tao YCMH",
+      "expect": "201",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "YCMH-02",
+      "feature": "YCMH",
+      "name": "List YCMH",
+      "expect": ">=1",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "YCMH-03",
+      "feature": "YCMH",
+      "name": "Lab khong tao YCMH",
+      "expect": "403",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "CCP-01",
+      "feature": "CCP / HACCP",
+      "name": "Monitor 14 ngay",
+      "expect": "ccp1_records",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "CCP-02",
+      "feature": "CCP / HACCP",
+      "name": "Tong hop CCP",
+      "expect": "200",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "CCP-03",
+      "feature": "CCP / HACCP",
+      "name": "Export PDF CCP",
+      "expect": "PDF",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "AUDIT-01",
+      "feature": "Audit",
+      "name": "ATTP xem audit",
+      "expect": "200",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "AUDIT-02",
+      "feature": "Audit",
+      "name": "Thu kho bi chan",
+      "expect": "403",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "AUDIT-03",
+      "feature": "Audit",
+      "name": "Loc theo entity",
+      "expect": "200",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "RPT-01",
+      "feature": "Bao cao Export",
+      "name": "Export CSV",
+      "expect": "CSV bytes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "RPT-02",
+      "feature": "Bao cao Export",
+      "name": "Export PDF ton",
+      "expect": "PDF",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "RPT-03",
+      "feature": "Bao cao Export",
+      "name": "PDF phieu nhap",
+      "expect": "PDF",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "BAL-01",
+      "feature": "Can doi & Mixing",
+      "name": "Material balance",
+      "expect": "input>0",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "BAL-02",
+      "feature": "Can doi & Mixing",
+      "name": "Mixing report",
+      "expect": "201",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "BAL-03",
+      "feature": "Can doi & Mixing",
+      "name": "PDF balance",
+      "expect": "PDF",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "CA-01",
+      "feature": "Corrective action",
+      "name": "Ghi CA",
+      "expect": "201",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "CA-02",
+      "feature": "Corrective action",
+      "name": "List CA",
+      "expect": ">=1",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "CA-03",
+      "feature": "Corrective action",
+      "name": "Thu kho bi chan",
+      "expect": "403",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "MAT-01",
+      "feature": "Master data",
+      "name": "Admin tao VT",
+      "expect": "201",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "MAT-02",
+      "feature": "Master data",
+      "name": "Thu kho tao VT",
+      "expect": "201",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "id": "MAT-03",
+      "feature": "Master data",
+      "name": "Ky thuat bi chan",
+      "expect": "403",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

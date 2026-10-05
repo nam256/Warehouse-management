@@ -1,0 +1,37 @@
+%% Hình 3.2b — Use case phân rã theo module
+flowchart TB
+    subgraph Kho["Module Kho"]
+        K1[Nhập kho PN]
+        K2[Xuất kho PX]
+        K3[Xem tồn]
+        K4[YCMH]
+        K5[Danh mục NVL]
+    end
+    subgraph SX["Module Sản xuất"]
+        S1[Tạo mẻ draft]
+        S2[Duyệt mẻ]
+        S3[Bắt đầu + xuất NVL]
+        S4[Ghi operation CCP2]
+        S5[Hoàn thành TP]
+        S6[Hủy mẻ]
+    end
+    subgraph Lab["Module Lab"]
+        L1[Nhập C14 CCP1]
+        L2[Nhập % t-CA CCP2]
+        L3[Ghi GC]
+    end
+    subgraph ATTP["Module ATTP / Báo cáo"]
+        T1[Truy xuất 2 chiều]
+        T2[Giám sát CCP 14 ngày]
+        T3[Audit log]
+        T4[Export PDF/CSV]
+        T5[Khắc phục CCP]
+    end
+
+    K1 --> S3
+    L1 --> K2
+    S3 --> S4
+    L2 --> S5
+    S5 --> T1
+    S4 --> T2
+    K1 --> T3

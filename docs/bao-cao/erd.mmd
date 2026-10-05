@@ -1,0 +1,147 @@
+%% Hình 3.1 — Sơ đồ ERD tổng thể (14 bảng)
+%% Sinh tự động: python scripts/generate_erd.py
+erDiagram
+    users {
+        integer id PK
+        string username
+        string password_hash
+        string full_name
+        enum role
+        boolean is_active
+        string ...
+    }
+    materials {
+        integer id PK
+        string code
+        string name
+        enum type
+        string unit
+        numeric min_stock
+        string ...
+    }
+    suppliers {
+        integer id PK
+        string code
+        string name
+        string contact
+        boolean is_active
+    }
+    warehouses {
+        integer id PK
+        string code
+        string name
+        boolean is_active
+    }
+    production_orders {
+        integer id PK
+        string order_no
+        integer product_material_id FK
+        numeric planned_qty
+        numeric actual_qty
+        enum status
+        string ...
+    }
+    stock_batches {
+        integer id PK
+        string batch_no
+        integer material_id FK
+        integer supplier_id FK
+        integer warehouse_id FK
+        numeric quantity
+        string ...
+    }
+    stock_movements {
+        integer id PK
+        enum movement_type
+        integer batch_id FK
+        numeric quantity
+        string reference_no
+        integer production_order_id FK
+        string ...
+    }
+    production_material_usages {
+        integer id PK
+        integer order_id FK
+        integer batch_id FK
+        numeric quantity
+        integer movement_id FK
+    }
+    operation_records {
+        integer id PK
+        integer order_id FK
+        string step
+        numeric temperature
+        numeric pressure
+        numeric t_top
+        string ...
+    }
+    lab_tests {
+        integer id PK
+        integer order_id FK
+        integer batch_id FK
+        string test_type
+        text gc_data
+        numeric c14
+        string ...
+    }
+    mixing_reports {
+        integer id PK
+        integer order_id FK
+        string formula
+        text input_batches
+        numeric mixed_qty
+        text notes
+        string ...
+    }
+    purchase_requests {
+        integer id PK
+        integer material_id FK
+        numeric requested_qty
+        string reason
+        enum status
+        integer created_by_id FK
+        string ...
+    }
+    audit_logs {
+        integer id PK
+        integer user_id FK
+        string action
+        string entity
+        string entity_id
+        text detail
+        string ...
+    }
+    corrective_actions {
+        integer id PK
+        string entity_type
+        integer entity_id
+        text reason
+        text action_taken
+        string status
+        string ...
+    }
+    materials ||--o{ production_orders : product_material_id
+    stock_batches ||--o{ production_orders : output_batch_id
+    users ||--o{ production_orders : approved_by_id
+    users ||--o{ production_orders : created_by_id
+    materials ||--o{ stock_batches : material_id
+    suppliers ||--o{ stock_batches : supplier_id
+    warehouses ||--o{ stock_batches : warehouse_id
+    production_orders ||--o{ stock_batches : source_order_id
+    stock_batches ||--o{ stock_movements : batch_id
+    production_orders ||--o{ stock_movements : production_order_id
+    users ||--o{ stock_movements : created_by_id
+    production_orders ||--o{ production_material_usages : order_id
+    stock_batches ||--o{ production_material_usages : batch_id
+    stock_movements ||--o{ production_material_usages : movement_id
+    production_orders ||--o{ operation_records : order_id
+    users ||--o{ operation_records : created_by_id
+    production_orders ||--o{ lab_tests : order_id
+    stock_batches ||--o{ lab_tests : batch_id
+    users ||--o{ lab_tests : created_by_id
+    production_orders ||--o{ mixing_reports : order_id
+    users ||--o{ mixing_reports : created_by_id
+    materials ||--o{ purchase_requests : material_id
+    users ||--o{ purchase_requests : created_by_id
+    users ||--o{ audit_logs : user_id
+    users ||--o{ corrective_actions : created_by_id

@@ -1,0 +1,48 @@
+digraph ERD {
+    graph [rankdir=LR, splines=ortho, fontname="Segoe UI"];
+    node [shape=record, fontname="Segoe UI", fontsize=10];
+    edge [fontname="Segoe UI", fontsize=9];
+
+    users [label="{users|id PK|username|password_hash|full_name|role|is_active|created_at}"];
+    materials [label="{materials|id PK|code|name|type|unit|min_stock|is_active}"];
+    suppliers [label="{suppliers|id PK|code|name|contact|is_active}"];
+    warehouses [label="{warehouses|id PK|code|name|is_active}"];
+    production_orders [label="{production_orders|id PK|order_no|product_material_id FK|planned_qty|actual_qty|status|order_type|output_batch_id FK|approved_by_id FK|approved_at|created_by_id FK|created_at|started_at|finished_at}"];
+    stock_batches [label="{stock_batches|id PK|batch_no|material_id FK|supplier_id FK|warehouse_id FK|quantity|ccp1_c14|ccp1_status|source_order_id FK|receipt_note|created_at}"];
+    stock_movements [label="{stock_movements|id PK|movement_type|batch_id FK|quantity|reference_no|production_order_id FK|notes|created_by_id FK|created_at}"];
+    production_material_usages [label="{production_material_usages|id PK|order_id FK|batch_id FK|quantity|movement_id FK}"];
+    operation_records [label="{operation_records|id PK|order_id FK|step|temperature|pressure|t_top|t_ca_percent|ccp2_status|notes|created_by_id FK|created_at}"];
+    lab_tests [label="{lab_tests|id PK|order_id FK|batch_id FK|test_type|gc_data|c14|t_ca_percent|result_status|created_by_id FK|created_at}"];
+    mixing_reports [label="{mixing_reports|id PK|order_id FK|formula|input_batches|mixed_qty|notes|created_by_id FK|created_at}"];
+    purchase_requests [label="{purchase_requests|id PK|material_id FK|requested_qty|reason|status|created_by_id FK|created_at}"];
+    audit_logs [label="{audit_logs|id PK|user_id FK|action|entity|entity_id|detail|created_at}"];
+    corrective_actions [label="{corrective_actions|id PK|entity_type|entity_id|reason|action_taken|status|created_by_id FK|created_at}"];
+
+    materials -> production_orders [label="product_material_id"];
+    stock_batches -> production_orders [label="output_batch_id"];
+    users -> production_orders [label="approved_by_id"];
+    users -> production_orders [label="created_by_id"];
+    materials -> stock_batches [label="material_id"];
+    suppliers -> stock_batches [label="supplier_id"];
+    warehouses -> stock_batches [label="warehouse_id"];
+    production_orders -> stock_batches [label="source_order_id"];
+    stock_batches -> stock_movements [label="batch_id"];
+    production_orders -> stock_movements [label="production_order_id"];
+    users -> stock_movements [label="created_by_id"];
+    production_orders -> production_material_usages [label="order_id"];
+    stock_batches -> production_material_usages [label="batch_id"];
+    stock_movements -> production_material_usages [label="movement_id"];
+    production_orders -> operation_records [label="order_id"];
+    users -> operation_records [label="created_by_id"];
+    production_orders -> lab_tests [label="order_id"];
+    stock_batches -> lab_tests [label="batch_id"];
+    users -> lab_tests [label="created_by_id"];
+    production_orders -> mixing_reports [label="order_id"];
+    users -> mixing_reports [label="created_by_id"];
+    materials -> purchase_requests [label="material_id"];
+    users -> purchase_requests [label="created_by_id"];
+    users -> audit_logs [label="user_id"];
+    users -> corrective_actions [label="created_by_id"];
+
+    corrective_actions_note [shape=note, label="corrective_actions\nentity_type + entity_id\n(polymorphic, no FK)"];
+}

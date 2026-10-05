@@ -1,0 +1,162 @@
+%% Oxeyns Kho & SX — Sơ đồ logic UML (Mermaid)
+%% Render: VS Code Mermaid preview | https://mermaid.live
+
+%% =============================================================================
+%% Hình 2.2 — Sơ đồ thành phần logic
+%% =============================================================================
+flowchart TB
+    subgraph Users["Người dùng"]
+        U1[Thủ kho]
+        U2[Kỹ thuật]
+        U3[Lab]
+        U4[QL NM]
+        U5[ATTP]
+    end
+
+    subgraph FE["Tầng trình diễn — React 19 + Vite"]
+        FE1[Pages: 11 menu + Login]
+        FE2[api.ts + auth.ts JWT]
+        FE3[roles.ts RBAC UI]
+    end
+
+    subgraph BE["Tầng ứng dụng — FastAPI"]
+        subgraph Routers["Routers /api/v1"]
+            R1[auth]
+            R2[stock + materials]
+            R3[production]
+            R4[lab]
+            R5[reports + quality]
+        end
+        subgraph Services["Services"]
+            S1[ccp.py]
+            S2[audit.py]
+            S3[pdf_export + csv_export]
+        end
+        SEC[security.py JWT + require_roles]
+    end
+
+    subgraph Data["Tầng dữ liệu"]
+        ORM[SQLAlchemy models.py]
+        DB[(SQLite oxeyns.db)]
+    end
+
+    Users --> FE1
+    FE1 --> FE2
+    FE2 -->|REST JSON| Routers
+    Routers --> Services
+    Routers --> SEC
+    Routers --> ORM
+    ORM --> DB
+
+%% =============================================================================
+%% Hình 2.3 — Sơ đồ lớp logic (classDiagram)
+%% =============================================================================
+classDiagram
+    direction LR
+
+    class User {
+        +int id
+        +string username
+        +UserRole role
+    }
+
+    class Material {
+        +string code
+        +MaterialType type
+        +decimal min_stock
+    }
+
+    class StockBatch {
+        +string batch_no
+        +decimal quantity
+        +decimal ccp1_c14
+        +CCPStatus ccp1_status
+    }
+
+    class StockMovement {
+        +MovementType movement_type
+        +decimal quantity
+    }
+
+    class ProductionOrder {
+        +string order_no
+        +OrderStatus status
+        +decimal planned_qty
+    }
+
+    class ProductionMaterialUsage {
+        +decimal quantity
+    }
+
+    class OperationRecord {
+        +decimal t_top
+        +CCPStatus ccp2_status
+    }
+
+    class LabTest {
+        +string test_type
+        +decimal c14
+        +decimal t_ca_percent
+    }
+
+    class AuditLog {
+        +string action
+        +string entity
+    }
+
+    Material "1" --> "0..*" StockBatch : có lô
+    StockBatch "1" --> "0..*" StockMovement : nhập/xuất
+    ProductionOrder "1" --> "0..*" ProductionMaterialUsage : dùng NVL
+    StockBatch "1" --> "0..*" ProductionMaterialUsage : lô xuất
+    ProductionOrder "1" --> "0..*" OperationRecord : CCP2
+    ProductionOrder "1" --> "0..*" LabTest : kiểm nghiệm
+    StockBatch "0..1" --> "0..*" LabTest : C14
+    ProductionOrder "0..1" --> "0..1" StockBatch : lô TP
+    User "1" --> "0..*" ProductionOrder : tạo/duyệt
+    User "1" --> "0..*" AuditLog : ghi log
+
+%% =============================================================================
+%% Hình 2.4 — Sơ đồ hoạt động logic nghiệp vụ
+%% =============================================================================
+flowchart TD
+    A([Bắt đầu]) --> B[Nhập kho NVL\nstock_batches + movement IN]
+    B --> C{Có C14?}
+    C -->|Có| D{CCP1 pass?\n13,02–14,39}
+    C -->|Chưa| E[ccp1 = pending]
+    D -->|Đạt| F[Duyệt mẻ SX]
+    D -->|Fail| X1([Dừng — cô lập lô])
+    E --> F
+    F --> G[Bắt đầu mẻ + xuất NVL]
+    G --> H{ccp1 = pass?}
+    H -->|Không| X2([Chặn xuất])
+    H -->|Có| I[Ghi operation record\nTtop, T, P]
+    I --> J[Lab nhập C14 / % t-CA]
+    J --> K{CCP2 pass?\nTtop + % t-CA}
+    K -->|Đạt| L[Hoàn thành mẻ\ntạo lô TP]
+    K -->|Fail/Pending| X3([Chặn complete])
+    L --> M[Truy xuất / Giám sát CCP\nAudit + PDF]
+    M --> N([Kết thúc])
+
+%% =============================================================================
+%% Hình 2.5 — Trạng thái mẻ sản xuất (stateDiagram)
+%% =============================================================================
+stateDiagram-v2
+    [*] --> draft : Tạo mẻ
+    draft --> approved : QL NM duyệt
+    draft --> cancelled : Hủy
+    approved --> running : Bắt đầu + xuất NVL
+    approved --> cancelled : Hủy
+    running --> done : Complete + CCP2 pass
+    running --> cancelled : Hủy
+    done --> [*]
+    cancelled --> [*]
+
+    note right of running
+        Ghi operation_records
+        Lab cập nhật % t-CA
+    end note
+
+    note right of done
+        Tạo stock_batches lô TP
+        output_batch_id gắn mẻ
+    end note

@@ -1,0 +1,22 @@
+# Python
+**/__pycache__/
+*.py[cod]
+backend/.venv/
+backend/venv/
+backend/.pytest_cache/
+backend/.env
+backend/oxeyns.db
+backend/oxeyns.db-journal
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/tsconfig.tsbuildinfo
+frontend/test-results/
+frontend/playwright-report/
+frontend/.vite/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log

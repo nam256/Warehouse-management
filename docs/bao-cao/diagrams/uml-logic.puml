@@ -1,0 +1,452 @@
+' =============================================================================
+' Oxeyns Kho & SX — Sơ đồ logic UML (PlantUML)
+' Render: https://www.plantuml.com/plantuml  |  VS Code: PlantUML extension
+' =============================================================================
+
+@startuml hinh-2-2-component-logic
+!theme plain
+title Hình 2.2 — Sơ đồ thành phần logic (3 tầng + 4 module)
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+actor "Người dùng\n(6 vai trò)" as User
+
+package "Tầng trình diễn" as FE #E8F4FD {
+  component [React 19 + TypeScript + Vite] as SPA
+  component [api.ts / auth.ts] as ApiClient
+  component [11 trang nghiệp vụ\n+ Login] as Pages
+  SPA --> ApiClient
+  SPA --> Pages
+}
+
+package "Tầng ứng dụng" as BE #FFF8E8 {
+  component [FastAPI + uvicorn\n/api/v1] as API
+
+  package "Routers" as Routers {
+    component [auth] as RAuth
+    component [stock\nmaterials] as RKho
+    component [production] as RSX
+    component [lab] as RLab
+    component [reports\nquality] as RATTP
+  }
+
+  package "Services" as Services {
+    component [ccp.py\nCCP1/CCP2] as CCP
+    component [audit.py] as Audit
+    component [pdf_export\ncsv_export] as Export
+  }
+
+  component [security.py\nJWT + RBAC] as Sec
+  API --> Routers
+  Routers --> Services
+  Routers --> Sec
+}
+
+package "Tầng dữ liệu" as DB #F0FFF0 {
+  database "SQLite\noxeyns.db" as SQLite
+  component [SQLAlchemy ORM\nmodels.py — 14 bảng] as ORM
+  ORM --> SQLite
+}
+
+User --> SPA : HTTPS
+ApiClient --> API : REST JSON\nBearer JWT
+Routers --> ORM
+
+note right of CCP
+  CCP1: C14 ∈ [13,02; 14,39]
+  CCP2: Ttop ∈ [107; 110]°C
+        % t-CA > 99%
+end note
+
+@enduml
+
+
+@startuml hinh-2-3-class-logic
+!theme plain
+title Hình 2.3 — Sơ đồ lớp logic miền nghiệp vụ (domain model)
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+
+enum UserRole {
+  admin
+  thu_kho
+  ky_thuat
+  lab
+  ql_nm
+  attp
+}
+
+enum OrderStatus {
+  draft
+  approved
+  running
+  done
+  cancelled
+}
+
+enum CCPStatus {
+  pending
+  pass
+  fail
+}
+
+class User {
+  +id: int
+  +username: string
+  +password_hash: string
+  +full_name: string
+  +role: UserRole
+}
+
+class Material {
+  +id: int
+  +code: string
+  +name: string
+  +type: NVL|BTP|TP
+  +min_stock: decimal
+}
+
+class Supplier {
+  +id: int
+  +code: string
+  +name: string
+}
+
+class Warehouse {
+  +id: int
+  +code: string
+  +name: string
+}
+
+class StockBatch {
+  +id: int
+  +batch_no: string
+  +quantity: decimal
+  +ccp1_c14: decimal
+  +ccp1_status: CCPStatus
+}
+
+class StockMovement {
+  +id: int
+  +movement_type: IN|OUT
+  +quantity: decimal
+  +reference_no: string
+}
+
+class ProductionOrder {
+  +id: int
+  +order_no: string
+  +planned_qty: decimal
+  +status: OrderStatus
+}
+
+class ProductionMaterialUsage {
+  +quantity: decimal
+}
+
+class OperationRecord {
+  +t_top: decimal
+  +temperature: decimal
+  +pressure: decimal
+  +ccp2_status: CCPStatus
+}
+
+class LabTest {
+  +test_type: string
+  +c14: decimal
+  +t_ca_percent: decimal
+  +result_status: CCPStatus
+}
+
+class AuditLog {
+  +action: string
+  +entity: string
+  +detail: text
+}
+
+class CorrectiveAction {
+  +entity_type: string
+  +reason: text
+  +status: string
+}
+
+class PurchaseRequest {
+  +requested_qty: decimal
+  +status: pending|approved|...
+}
+
+User "1" -- "0..*" ProductionOrder : tạo / duyệt
+Material "1" -- "0..*" StockBatch : lô hàng
+Supplier "0..1" -- "0..*" StockBatch : nguồn NVL
+Warehouse "1" -- "0..*" StockBatch : lưu trữ
+
+StockBatch "1" -- "0..*" StockMovement : nhập/xuất
+ProductionOrder "0..1" -- "0..*" StockMovement : link xuất NVL
+
+ProductionOrder "1" -- "0..*" ProductionMaterialUsage : tiêu thụ NVL
+StockBatch "1" -- "0..*" ProductionMaterialUsage : lô xuất
+
+ProductionOrder "1" -- "0..*" OperationRecord : CCP2
+ProductionOrder "1" -- "0..*" LabTest : kiểm nghiệm
+StockBatch "0..1" -- "0..*" LabTest : C14 lô NVL
+
+ProductionOrder "0..1" -- "0..1" StockBatch : lô TP đầu ra
+Material "1" -- "0..*" ProductionOrder : sản phẩm
+
+User "1" -- "0..*" AuditLog : ghi nhận
+User "1" -- "0..*" CorrectiveAction : khắc phục
+Material "1" -- "0..*" PurchaseRequest : YCMH
+
+note bottom of StockBatch
+  **Trục truy xuất lô**
+  NVL batch → usages → order → TP batch
+end note
+
+@enduml
+
+
+@startuml hinh-2-4-activity-logic
+!theme plain
+title Hình 2.4 — Sơ đồ hoạt động logic nghiệp vụ (Kho → SX → Lab → ATTP)
+
+start
+
+:Thủ kho nhập kho NVL\nPOST /stock/receipts;
+:Tạo stock_batches + movement IN;
+
+if (Có giá trị C14?) then (có)
+  :evaluate_ccp1(c14);
+  if (13,02 ≤ C14 ≤ 14,39?) then (đạt)
+    :ccp1_status = pass;
+  else (không đạt)
+    :ccp1_status = fail;
+    :Ghi corrective_actions (tùy chọn);
+    stop
+  endif
+else (chưa)
+  :ccp1_status = pending;
+endif
+
+:QL NM duyệt mẻ\nPOST /orders/{id}/approve;
+
+:Kỹ thuật bắt đầu mẻ\nPOST /orders/{id}/start;
+if (ccp1_status == pass?) then (ok)
+  :Xuất NVL → production_material_usages\n+ stock_movements OUT;
+else (fail)
+  :HTTP 400 — chặn xuất;
+  stop
+endif
+
+:Kỹ thuật ghi operation record\nPOST /orders/{id}/operations;
+:evaluate_ccp2(Ttop, % t-CA);
+
+:Lab nhập kết quả\nPOST /lab/tests;
+:Cập nhật C14 / % t-CA;
+
+if (CCP2 pass?) then (đạt)
+  :Hoàn thành mẻ\nPOST /orders/{id}/complete;
+  :Tạo lô TP (stock_batches);
+  :order.status = done;
+else (fail/pending)
+  :HTTP 400 — chặn hoàn thành;
+  stop
+endif
+
+:ATTP truy xuất lô\nGET /reports/trace/{batch_no};
+:Giám sát CCP / Audit / Export PDF;
+
+:audit_logs ghi mọi bước;
+
+stop
+
+@enduml
+
+
+@startuml hinh-2-5-usecase-logic
+!theme plain
+title Hình 2.5 — Sơ đồ use case logic theo module
+
+left to right direction
+skinparam shadowing false
+
+actor "Thủ kho" as TK
+actor "Kỹ thuật" as KT
+actor "Lab" as LB
+actor "QL NM" as QL
+actor "ATTP" as AT
+actor "Admin" as AD
+
+rectangle "Oxeyns Kho & SX" {
+  usecase "Đăng nhập / JWT" as UC0
+
+  package "Module Kho" {
+    usecase "Nhập kho + CCP1" as UC1
+    usecase "Xuất kho" as UC2
+    usecase "Xem tồn kho" as UC3
+    usecase "Yêu cầu mua hàng" as UC4
+  }
+
+  package "Module Sản xuất" {
+    usecase "Tạo mẻ SX" as UC5
+    usecase "Duyệt mẻ" as UC6
+    usecase "Operation record CCP2" as UC7
+    usecase "Hoàn thành mẻ" as UC8
+  }
+
+  package "Module Lab" {
+    usecase "Nhập C14 / GC / % t-CA" as UC9
+  }
+
+  package "Module Báo cáo & ATTP" {
+    usecase "Truy xuất lô 2 chiều" as UC10
+    usecase "Giám sát CCP" as UC11
+    usecase "Nhật ký audit" as UC12
+    usecase "Xuất PDF/CSV" as UC13
+  }
+
+  usecase "Dashboard tổng hợp" as UC14
+}
+
+TK --> UC0
+KT --> UC0
+LB --> UC0
+QL --> UC0
+AT --> UC0
+AD --> UC0
+
+TK --> UC1
+TK --> UC2
+TK --> UC3
+TK --> UC4
+
+KT --> UC5
+KT --> UC7
+KT --> UC8
+KT --> UC2
+
+QL --> UC6
+QL --> UC14
+QL --> UC4
+
+LB --> UC9
+
+AT --> UC10
+AT --> UC11
+AT --> UC12
+AT --> UC13
+AT --> UC9
+
+AD --> UC1
+AD --> UC5
+AD --> UC10
+
+UC1 ..> UC9 : <<include>> C14
+UC7 ..> UC9 : <<include>> % t-CA
+UC8 ..> UC7 : <<extend>> CCP2 pass
+UC2 ..> UC5 : <<include>> link mẻ
+
+@enduml
+
+
+@startuml hinh-2-6-sequence-ccp-logic
+!theme plain
+title Hình 2.6 — Sơ đồ tuần tự logic đánh giá CCP (ccp.py)
+
+actor "Người dùng" as U
+participant "Router\n(stock/lab/production)" as R
+participant "ccp.py" as CCP
+database "SQLite" as DB
+
+alt Nhập kho — CCP1
+  U -> R : POST /stock/receipts {c14}
+  R -> CCP : evaluate_ccp1(c14)
+  alt c14 is None
+    CCP --> R : pending
+  else 13.02 <= c14 <= 14.39
+    CCP --> R : pass
+  else ngoài ngưỡng
+    CCP --> R : fail
+  end
+  R -> DB : UPDATE stock_batches.ccp1_status
+end
+
+alt Lab — bổ sung CCP1/CCP2
+  U -> R : POST /lab/tests
+  R -> CCP : evaluate_ccp1 / evaluate_ccp2
+  CCP --> R : status
+  R -> DB : UPDATE lab_tests + batch/order
+end
+
+alt Hoàn thành mẻ — kiểm tra CCP2
+  U -> R : POST /orders/{id}/complete
+  R -> DB : SELECT operation_records
+  R -> CCP : evaluate_ccp2(t_top, t_ca_percent)
+  alt pass
+    CCP --> R : pass
+    R -> DB : INSERT lô TP, status=done
+    R --> U : 200 OK
+  else fail hoặc pending
+    CCP --> R : fail/pending
+    R --> U : 400 Chưa đạt CCP2
+  end
+end
+
+@enduml
+
+
+@startuml hinh-2-7-package-logic
+!theme plain
+title Hình 2.7 — Sơ đồ gói logic mã nguồn
+
+skinparam shadowing false
+
+package "frontend/" {
+  package "src/pages" {
+    [Dashboard]
+    [StockIn / StockOut]
+    [Production]
+    [Lab / Trace / Haccp]
+    [Audit / Reports]
+  }
+  package "src" {
+    [api.ts]
+    [auth.ts]
+    [roles.ts]
+  }
+}
+
+package "backend/app/" {
+  package "routers" {
+    [auth.py]
+    [stock.py]
+    [production.py]
+    [lab.py]
+    [reports.py]
+    [quality.py]
+    [materials.py]
+  }
+  package "services" {
+    [ccp.py]
+    [audit.py]
+    [pdf_export.py]
+    [csv_export.py]
+  }
+  package "core" {
+    [security.py]
+    [timezone.py]
+  }
+  [models.py]
+  [schemas.py]
+  [database.py]
+  [config.py]
+}
+
+[api.ts] ..> [routers] : HTTP REST
+[routers] ..> [services]
+[routers] ..> [models.py]
+[routers] ..> [security.py]
+[models.py] ..> [database.py]
+
+@enduml

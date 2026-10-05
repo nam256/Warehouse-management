@@ -1,0 +1,78 @@
+KIỂM TRA LẦN CUỐI — BAOCAO.TXT vs PROJECT
+Kết luận: ĐỦ để soạn báo cáo TTTN (4 chương). Nội dung đầy đủ prose: docs/bao-cao/noi-dung/
+
+NỘI DUNG ĐÃ SOẠN (prose đầy đủ):
+  • docs/bao-cao/noi-dung/00-mo-dau.md
+  • docs/bao-cao/noi-dung/chuong-1.md … chuong-4.md
+  • docs/bao-cao/noi-dung/tai-lieu-tham-khao.md
+  • docs/bao-cao/noi-dung/README.md (hướng dẫn ghép Word)
+
+═══════════════════════════════════════════════════════════════
+CHECKLIST — ĐÃ PHỦ HẾT
+═══════════════════════════════════════════════════════════════
+
+PHẦN MỞ ĐẦU
+  ✓ Lời mở đầu, cảm ơn, nhận xét, lịch, DM hình/bảng, từ viết tắt
+
+CHƯƠNG 1 — TỔNG QUÁT
+  ✓ Oxeyns Long An, tổ chức 5 bộ phận
+  ✓ Quy trình t-CA, HACCP, BM-xx
+  ✓ Hiện trạng CNTT (hien-trang-cntt.md)
+  ✓ 5 phỏng vấn (docs/phong-van/)
+  ✓ Mục tiêu, phạm vi, phương pháp
+  ✓ Ý nghĩa khoa học thực tiễn (1.6)
+  ✓ Nguồn DN: attp.txt, chuongtrinhthamtra.txt, quytrinhsanxuat.txt
+
+CHƯƠNG 2 — CƠ SỞ LÝ THUYẾT
+  ✓ MIS/ERP/MES, HACCP, FSSC, batch, CCP1/CCP2
+  ✓ FSSC 8.7 validation
+  ✓ FastAPI, React, JWT, SQLAlchemy, ReportLab
+  ✓ 4 module + FR/NFR + ma trận P01–P12
+
+CHƯƠNG 3 — CÀI ĐẶT THỬ NGHIỆM
+  ✓ as-is / to-be (process-*.md, data-flow.md)
+  ✓ 14 bảng DB (SQLite oxeyns.db — Postgres/Docker chưa dùng)
+  ✓ UML use case (11 menu, 6 role)
+  ✓ 14 sequence = toàn bộ luồng nghiệp vụ chính
+  ✓ Trạng thái mẻ + data flow + map 6 BM-xx
+  ✓ Kiến trúc SQLite; docker-compose.yml có nhưng chưa kết nối
+  ✓ 11 menu UI + từng màn hình (3.4.1–3.4.9)
+  ✓ PDF/CSV đủ loại export trong reports.py
+  ✓ pytest 17, test.md, UAT, E2E
+  ✓ UI tiếng Việt + JWT (3.4.12)
+
+CHƯƠNG 4 — KẾT LUẬN
+  ✓ Kết quả, đánh giá mục tiêu, sản phẩm bàn giao
+  ✓ Kinh nghiệm, hạn chế, hướng phát triển, kiến nghị
+
+PHỤ LỤC A–M
+  ✓ Map đủ file docs/ quan trọng trong repo
+
+═══════════════════════════════════════════════════════════════
+CÓ TRONG CODE — KHÔNG CẦN MỤC RIÊNG (đã gộp)
+═══════════════════════════════════════════════════════════════
+  • GET /stock/movements — xem lịch sử phiếu, gộp mục kho
+  • GET /reports/ccp-summary — phục vụ dashboard
+  • CRUD materials API — master data, gộp 3.2.1.2
+  • FIFO backend — nhắc ở 4.3/4.4 hạn chế
+  • seed.py demo NVL-QUE, TP-TCA — nhắc trong 3.4.10 test
+
+═══════════════════════════════════════════════════════════════
+CHƯA CÓ / NGOÀI MVP — GHI Ở CH.4 (đúng, không thiếu mục lục)
+═══════════════════════════════════════════════════════════════
+  • Go-live production
+  • Phỏng vấn trực tiếp + biên bản
+  • Scan BM giấy, sign-off UAT (sign-off.md draft)
+  • Tích hợp GC tự động, TT-TVTH, mobile barcode
+  • Mixing UI đầy đủ (API đã có)
+
+═══════════════════════════════════════════════════════════════
+KHI SOẠN WORD — VIỆC CẦN LÀM (không phải thiếu mục lục)
+═══════════════════════════════════════════════════════════════
+  □ Vẽ ERD, use case, 14 sequence (nội dung có trong docs/)
+  □ Chụp screenshot 11 menu → Phụ lục L
+  □ Điền số trang thật
+  □ Điền thông tin cá nhân trong 00-mo-dau.md (mẫu đã có)
+  □ Ghép 6 file noi-dung/ vào Word theo BAOCAO.TXT
+
+VERDICT: Mục lục BAOCAO.TXT — HOÀN CHỈNH ✓ | Nội dung prose noi-dung/ — HOÀN CHỈNH ✓ (00 + Ch1–4 + TLTK)

@@ -1,0 +1,25 @@
+%% Hình 3.H — Quy trình as-is và to-be
+flowchart TB
+    subgraph ASIS["As-is (giấy + Excel)"]
+        direction TB
+        A1[NCC giao hàng] --> A2[Thủ kho BM-01/GMP01]
+        A2 --> A3[Excel tồn kho]
+        A2 --> A4[Lab C14 file/email]
+        A4 --> A5[Kỹ thuật BM-01/GMP03 giấy]
+        A5 --> A6[Lab GC % t-CA]
+        A6 --> A7[Thủ kho xuất giấy]
+        A7 --> A8[ATTP ghép hồ sơ 14 ngày]
+    end
+
+    subgraph TOBE["To-be (Oxeyns Kho & SX)"]
+        direction TB
+        B1[NCC] --> B2["POST /stock/receipts"]
+        B2 --> B3["stock_batch + CCP1"]
+        B3 --> B4["POST /lab/tests C14"]
+        B4 --> B5["POST /production/orders"]
+        B5 --> B6["start → xuất NVL"]
+        B6 --> B7["operations CCP2 Ttop"]
+        B7 --> B8["Lab % t-CA"]
+        B8 --> B9["complete → lô TP"]
+        B9 --> B10["trace / haccp-monitor / audit PDF"]
+    end

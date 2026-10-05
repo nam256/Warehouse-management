@@ -1,0 +1,26 @@
+%% Hình 3.18 — Kiến trúc 3 tầng
+flowchart TB
+    subgraph Presentation["Tầng trình bày — React 19 + Vite :5173"]
+        P1[12 trang tiếng Việt]
+        P2[api.ts JWT client]
+        P3[Layout.tsx 11 menu]
+    end
+
+    subgraph Application["Tầng ứng dụng — FastAPI :8000"]
+        A1[routers: auth stock production lab reports quality materials]
+        A2[services: ccp audit audit_display]
+        A3[pdf_export csv_export]
+        A4[require_roles RBAC]
+    end
+
+    subgraph Data["Tầng dữ liệu — SQLite"]
+        D1[(oxeyns.db)]
+        D2[14 bảng SQLAlchemy 2]
+    end
+
+    P2 -->|REST /api/v1| A1
+    A1 --> A2
+    A1 --> A3
+    A1 --> A4
+    A1 -->|SQLAlchemy ORM| D1
+    D2 --- D1

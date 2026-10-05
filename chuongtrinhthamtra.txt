@@ -1,0 +1,207 @@
+TÓM TẮT CHƯƠNG TRÌNH THẨM TRA HỆ THỐNG HACCP
+Công ty TNHH Oxeyns - Chi nhánh Long An
+Nguồn: Chuong trinh tham tra HACCP.docx
+
+================================================================================
+1. THÔNG TIN CHUNG
+================================================================================
+- Đơn vị: Công ty TNHH Oxeyns - Chi nhánh Long An
+- Địa chỉ: B7a, đường số 2, Khu xưởng Kizuna 2, KCN Tân Kim, thị trấn Cần Giuộc, huyện Cần Giuộc, tỉnh Long An
+- Tài liệu: Chương trình thẩm tra hệ thống HACCP (GMP, SSOP, HACCP)
+
+================================================================================
+2. HAI LOẠI THẨM TRA CHÍNH
+================================================================================
+
+2.1. Thẩm tra tại các điểm kiểm soát tới hạn (CCP)
+- Người thẩm tra: Đội trưởng/đội phó HACCP hoặc người được ủy quyền
+- Tần suất: 14 ngày/lần
+- Nội dung:
+  + Xem xét hồ sơ ghi chép
+  + Đối chiếu với thực tế sản xuất
+
+2.2. Thẩm tra nội bộ hệ thống HACCP
+- Người thẩm tra: Đội HACCP
+- Tần suất:
+  + Hàng năm (định kỳ)
+  + Khi thay đổi dây chuyền sản xuất hoặc điều kiện chế biến
+  + Khi thay đổi nguồn lực quản lý chất lượng
+  + Khi có thay đổi bất kỳ điểm nào trên dây chuyền gây nghi ngờ an toàn thực phẩm
+  + Khi có khiếu nại của khách hàng
+- Nội dung: Đội trưởng HACCP lập kế hoạch thẩm tra GMP, SSOP, HACCP, bao gồm:
+  + Thời điểm thẩm tra, người thực hiện
+  + Đánh giá tài liệu GMP, SSOP, HACCP
+  + Xem xét hồ sơ ghi chép, đối chiếu thực tế
+  + Kiểm tra và hiệu chỉnh thiết bị
+  + Lấy mẫu kiểm tra vệ sinh công nghiệp, bán thành phẩm
+  + Lấy mẫu tại các điểm CCP
+- Tất cả kế hoạch và hoạt động thẩm tra đều lập biên bản lưu hồ sơ
+
+================================================================================
+3. SẢN PHẨM VÀ QUY TRÌNH SẢN XUẤT
+================================================================================
+
+3.1. Sản phẩm
+- Tên: t-Cinnamic aldehyde (t-CA)
+- Nguyên liệu: Tinh dầu quế (cassia oil)
+- Thành phần khác: Benzaldehyde, Coumarin...
+- Bao gói: Phuy nhựa 200 kg hoặc theo yêu cầu khách hàng
+- Bảo quản: Nhiệt độ thường, tránh ánh sáng và tiếp xúc không khí, bảo quản bằng khí Nito
+- Vận chuyển: Nhiệt độ thường, đường biển/đường bộ
+- Hạn sử dụng: 2 năm
+- Tiêu chuẩn tuân thủ: Kosher, HACCP Codex (CXC 1-1969 Rev 2020), FSSC 22000, TCVN/ISO/TS 22002-1
+
+3.2. Quy trình sản xuất thành phẩm
+Tiếp nhận nguyên liệu dầu quế
+  → Bảo quản nguyên liệu
+  → Chưng cất
+  → Chiết rót, bơm Nito (thành phẩm thô)
+  → Phối trộn
+  → Bơm Nito, đóng phuy, dán nhãn, bảo quản
+
+3.3. Quy trình bán thành phẩm
+Tiếp nhận nguyên liệu → Bảo quản → Chưng cất → Chiết rót, bơm Nito → Chưng cất lại
+
+3.4. Các điểm GMP và CCP trên dây chuyền
+- GMP1: Tiếp nhận nguyên liệu        | CCP1: Kiểm soát nguyên liệu đầu vào
+- GMP2: Bảo quản nguyên liệu
+- GMP3: Chưng cất                     | CCP2: Kiểm soát nhiệt độ và hàm lượng khi chưng cất
+- GMP4: Chiết rót, bơm Nito
+- GMP5: Bán thành phẩm
+- GMP6: Thành phẩm thô
+- GMP7: Phối trộn, đóng phuy, dán nhãn, bảo quản
+
+================================================================================
+4. CHI TIẾT CÁC CÔNG ĐOẠN SẢN XUẤT
+================================================================================
+
+STT | Công đoạn              | Mô tả ngắn
+----|------------------------|--------------------------------------------------
+ 1  | Tiếp nhận nguyên liệu  | Kiểm tra SL, KL, chất lượng (màu, mùi, tỷ trọng, chỉ số khúc xạ, độ triền quang, hàm lượng) trước khi nhập kho
+ 2  | Bảo quản               | Nhiệt độ thường, tránh nắng trực tiếp, không gian khô thoáng
+ 3  | Chưng cất              | Gia nhiệt 130-150°C, chân không -0.1 MPa; nhiệt độ đỉnh cột Ttop = 107-110°C quyết định thu TP/BTP
+ 4  | Chiết rót, bơm Nito    | Sục Nito vào bồn/phuy, xả sản phẩm, lấy mẫu, sục Nito 10 bar/2 phút, đóng phuy, cân, dán nhãn
+ 5  | Bán thành phẩm         | Bảo quản và chưng cất lại để thu thành phẩm thô
+ 6  | Thành phẩm thô         | Hàm lượng %t-CA > 99%, đưa vào khu bảo quản
+ 7  | Phối trộn, đóng phuy   | Khuấy trộn kết hợp sục Nito 2h, kiểm tra độ đồng nhất, chiết rót, bơm Nito, đóng phuy, dán nhãn
+
+- Đơn vị thực hiện chính: Quản lý nhà máy, Thủ kho, Phòng Lab, Phòng kỹ thuật
+- Biểu mẫu chính: BM-01/GMP01, BM-02/GMP01, BM-01/GMP03, BM-01/GMP04, BM-01/GMP05, BM-02/GMP05
+
+================================================================================
+5. PHÂN TÍCH MỐI NGUY (TÓM LƯỢC)
+================================================================================
+
+Công đoạn              | Mối nguy đáng kể                          | Biện pháp chính
+-----------------------|-------------------------------------------|----------------------------------
+Tiếp nhận nguyên liệu  | Hóa học: biến đổi/thêm thành phần (CCP1)  | Cam kết NCC, kiểm tra khi nhập, phân tích C14
+Chưng cất              | Hóa học: biến đổi thành phần, hàm lượng   | Kiểm soát nhiệt độ, áp suất; lấy mẫu (CCP2)
+Chiết rót, bơm Nito    | Vật lý: bụi, mạt sắt; sinh học: vi sinh   | Lọc, SSOP, sục Nito chống tiếp xúc không khí
+Phối trộn, đóng phuy   | Vật lý: bụi; sinh học: vi sinh            | Lọc, SSOP, GMP, sục Nito
+Bảo quản               | Hóa học: biến đổi thành phần             | Tuân thủ GMP, điều kiện bảo quản phù hợp
+
+- Các mối nguy vật lý (cặn, bụi, mạt sắt) đa số được loại bỏ trong chưng cất hoặc lọc, không đánh giá là mối nguy đáng kể
+- Mối nguy sinh học: không đáng kể ở hầu hết công đoạn (sản phẩm tinh dầu, quy trình nhiệt)
+
+================================================================================
+6. HAI ĐIỂM KIỂM SOÁT TỚI HẠN (CCP)
+================================================================================
+
+CCP1 - Tiếp nhận nguyên liệu
+- Mối nguy: Hóa học - biến đổi/thêm thành phần không mong muốn
+- Giới hạn tới hạn: C14 = 13.02 - 14.39 dpm/gC
+- Kiểm soát: Gửi mẫu phân tích bên ngoài, mỗi lô nguyên liệu
+- Đơn vị: Phòng nhân sự, Thủ kho, Phòng kiểm nghiệm bên ngoài
+- Hành động sửa chữa: Nhận diện, cô lập, báo cáo, khiếu nại NCC, trả hàng
+- Hồ sơ: BM-01/GMP01, BM-02/GMP01
+- Thẩm tra: Đội trưởng HACCP mỗi lần nhập nguyên liệu
+
+CCP2 - Chưng cất
+- Mối nguy: Hóa học - biến đổi thành phần, hàm lượng
+- Giới hạn tới hạn:
+  + Nhiệt độ đỉnh cột (TI103): 107 - 110°C
+  + Hàm lượng sản phẩm (% t-CA): > 99%
+- Kiểm soát: Phòng kỹ thuật kiểm soát nhiệt độ; Phòng Lab kiểm soát hàm lượng mẫu theo thời gian, mỗi lô SX
+- Hành động sửa chữa: Nhận diện, lấy mẫu khảo sát
+- Hồ sơ: Operation Record (BM-01/GMP03)
+- Thẩm tra: Đội trưởng HACCP 14 ngày/lần
+
+(Lưu ý: C14 là đồng vị phóng xạ của cacbon, dùng để phát hiện nguyên liệu có thêm hóa chất tổng hợp hay không)
+
+================================================================================
+7. Ý NGHĨA ĐỐI VỚI ĐỀ TÀI (HỖ TRỢ IT)
+================================================================================
+
+Từ góc nhìn hệ thống quản lý sản xuất và kho tinh dầu, tài liệu này cho thấy:
+
+- Quy trình sản xuất tinh dầu quế → t-CA gồm 7 công đoạn chính, có nhánh thành phẩm và bán thành phẩm
+- Hệ thống HACCP đã có sẵn biểu mẫu giấy (BM-xx/GMPxx) cho từng công đoạn: nhập kho, sản xuất, cân đối vật tư, phối trộn
+- Hai điểm CCP quan trọng nhất: kiểm tra nguyên liệu đầu vào (C14) và kiểm soát chưng cất (nhiệt độ + hàm lượng)
+- Dữ liệu cần ghi nhận thường xuyên: phiếu nhập nguyên liệu, operation record, inventory hàng tháng, mixing report, GC data
+- Thẩm tra định kỳ 14 ngày/lần tại CCP và thẩm tra nội bộ hàng năm (hoặc khi có thay đổi/sự cố)
+
+=> Cơ hội cải tiến IT: số hóa biểu mẫu, tích hợp dữ liệu Lab/kho/sản xuất, cảnh báo giới hạn CCP, theo dõi lô (batch) và hồ sơ thẩm tra tập trung.
+
+
+Nhật ký thao tác hệ thống nó thống nó không khớp với các thao tác tôi đã làm
+
+19:02:14 23/06/2026	ATTP	Kiểm nghiệm	Kết quả kiểm nghiệm	—	GC
+18:59:01 23/06/2026	Phòng Lab	Kiểm nghiệm	Kết quả kiểm nghiệm	—	GC
+18:52:08 23/06/2026	Kỹ thuật	Hoàn thành mẻ	Mẻ sản xuất	10	TP-20260624-001
+18:51:06 23/06/2026	Kỹ thuật	Ghi điểm kiểm soát 2	Mẻ sản xuất	10	chung_cat
+18:46:44 23/06/2026	Kỹ thuật	Ghi điểm kiểm soát 2	Mẻ sản xuất	10	chung_cat
+18:46:39 23/06/2026	Kỹ thuật	Ghi điểm kiểm soát 2	Mẻ sản xuất	10	chung_cat
+18:44:46 23/06/2026	Kỹ thuật	Bắt đầu sản xuất	Mẻ sản xuất	10	SX-20260624-001
+18:31:58 23/06/2026	Quản lý NM	Duyệt	Mẻ sản xuất	10	SX-20260624-001
+
+
+Giám sát điểm kiểm soát tới hạn (14 ngày gần nhất)
+Số lần không đạt: 2 | Số lần kiểm nghiệm: 6
+
+Xuất biên bản giám sát (PDF)
+Điểm kiểm soát 1 — Nguyên liệu
+Mã lô	Chỉ số C14	Kết quả	Thời gian
+TP-20260624-001	13.5	Đạt	2026-06-23T18:52:08
+NVL-20260624-001	13.5	Đạt	2026-06-23T17:45:23
+NVL-20260623-003	13.5	Đạt	2026-06-23T07:35:42
+TP-20260623-004	—	Đạt	2026-06-23T07:16:28
+TP-20260623-003	—	Đạt	2026-06-23T07:16:27
+TP-20260623-002	—	Đạt	2026-06-23T07:16:25
+TP-20260623-001	—	Đạt	2026-06-23T07:09:21
+NVL-20260623-002	13.5	Đạt	2026-06-23T06:58:33
+NVL-20260623-001	13.5	Đạt	2026-06-23T06:58:20
+NVL-20260620-009	13.5	Đạt	2026-06-19T19:59:24
+TP-20260620-003	13.5	Đạt	2026-06-19T19:51:30
+NVL-20260620-008	13.5	Đạt	2026-06-19T19:45:06
+NVL-20260620-007	13.5	Đạt	2026-06-19T19:38:57
+NVL-20260620-006	13.5	Đạt	2026-06-19T19:33:42
+NVL-20260620-004	13.8	Đạt	2026-06-19T19:26:22
+NVL-20260620-005	11	Không đạt	2026-06-19T19:26:22
+TP-20260620-002	—	Đạt	2026-06-19T19:26:22
+NVL-20260620-002	13.5	Đạt	2026-06-19T19:25:24
+NVL-20260620-003	12	Không đạt	2026-06-19T19:25:24
+TP-20260620-001	—	Đạt	2026-06-19T19:07:08
+NVL-20260620-001	13.5	Đạt	2026-06-19T19:07:07
+Điểm kiểm soát 2 — Chưng cất
+Mã mẻ sản xuất	Nhiệt độ đỉnh (°C)	Hàm lượng thành phần chính (%)	Kết quả
+10	108	99.5	Đạt
+10	108	99.5	Đạt
+10	108	99.5	Đạt
+3	108	99.5	Đạt
+1	108	99.5	Đạt
+
+căn lề của file xuất pdf và csv đẹp chuẩn báo cáo
+
+CÔNG TY OXEYNS — CHI NHÁNH LONG AN
+PHIU NHP NGUYÊN LIU
+H thng qun lý kho & sn xut tinh du (prototype TTTN)
+Mã biu mu: BM-01/GMP01
+Ngày lp: 02:36:41 24/06/2026
+Mã lô TP-20260624-001
+Vt t t-Cinnamic Aldehyde
+S lng (kg) 18.000
+Ch s C14 (dpm/gC) 13.5000
+Kt qu CCP1 Đt
+Ngi lp biu Ngi duy
+
+Thêm phần gợi ý mã lô hàng cho dễ truy Xuất

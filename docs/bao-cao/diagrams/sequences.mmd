@@ -1,0 +1,210 @@
+%% Hình 3.3 — Đăng nhập và phân quyền
+sequenceDiagram
+    actor U as Người dùng
+    participant FE as Login.tsx
+    participant API as FastAPI auth
+    participant DB as SQLite
+    U->>FE: Nhập username/password
+    FE->>API: POST /api/v1/auth/login
+    API->>DB: SELECT users WHERE username
+    DB-->>API: password_hash
+    API->>API: bcrypt verify
+    API-->>FE: JWT access_token
+    FE->>FE: localStorage.setItem token
+    FE->>API: GET /auth/me + Bearer
+    API->>API: require_roles
+    API-->>FE: UserOut role
+    FE->>FE: App.tsx route guard
+
+%% Hình 3.4 — Nhập kho và CCP1
+sequenceDiagram
+    actor TK as Thủ kho
+    participant FE as StockIn.tsx
+    participant API as stock router
+    participant CCP as ccp.py
+    participant DB as SQLite
+    TK->>FE: Điền NVL, NCC, SL, mã lô
+    FE->>API: POST /stock/receipts
+    API->>DB: INSERT stock_batches
+    API->>DB: INSERT stock_movements IN
+    API->>CCP: evaluate_ccp1(c14)
+    CCP-->>API: pending/pass/fail
+    API->>DB: UPDATE ccp1_status
+    API->>DB: INSERT audit_logs
+    API-->>FE: StockBatchOut + PN
+
+%% Hình 3.5 — Xuất kho NVL
+sequenceDiagram
+    actor TK as Thủ kho
+    participant FE as StockOut.tsx
+    participant API as stock router
+    participant DB as SQLite
+    TK->>FE: Chọn lô, số lượng
+    FE->>API: POST /stock/issues
+    API->>DB: SELECT stock_batches
+    alt quantity đủ và ccp1 pass
+        API->>DB: INSERT movement OUT
+        API->>DB: UPDATE quantity
+        API->>DB: audit_logs
+        API-->>FE: 201 StockMovementOut
+    else fail
+        API-->>FE: 400 Không đủ tồn / CCP fail
+    end
+
+%% Hình 3.6 — Yêu cầu mua hàng
+sequenceDiagram
+    actor TK as Thủ kho
+    participant FE as Dashboard / PurchaseRequests
+    participant API as stock router
+    participant DB as SQLite
+    FE->>API: GET /stock/inventory
+    API-->>FE: quantity < min_stock
+    TK->>FE: Tạo YCMH
+    FE->>API: POST /stock/purchase-requests
+    API->>DB: INSERT purchase_requests pending
+    API-->>FE: PurchaseRequestOut
+
+%% Hình 3.7 — Tạo và duyệt mẻ
+sequenceDiagram
+    actor KT as Kỹ thuật
+    actor QL as QL NM
+    participant FE as Production.tsx
+    participant API as production router
+    participant DB as SQLite
+    KT->>FE: Tạo mẻ mới
+    FE->>API: POST /production/orders
+    API->>DB: INSERT status=draft
+    QL->>FE: Duyệt mẻ
+    FE->>API: POST /orders/{id}/approve
+    API->>DB: UPDATE approved + approved_by
+    API-->>FE: ProductionOrderOut
+
+%% Hình 3.8 — Bắt đầu SX, xuất NVL
+sequenceDiagram
+    actor KT as Kỹ thuật
+    participant FE as Production.tsx
+    participant API as production router
+    participant DB as SQLite
+    KT->>FE: Bắt đầu mẻ + chọn lô NVL
+    FE->>API: POST /orders/{id}/start
+    API->>DB: Kiểm tra ccp1_status=pass
+    API->>DB: INSERT production_material_usages
+    API->>DB: INSERT stock_movements OUT
+    API->>DB: UPDATE order status=running
+    API-->>FE: ProductionOrderOut running
+
+%% Hình 3.9 — Ghi CCP2 operation
+sequenceDiagram
+    actor KT as Kỹ thuật
+    participant FE as Production.tsx
+    participant API as production router
+    participant CCP as ccp.py
+    participant DB as SQLite
+    KT->>FE: Nhập Ttop, T, P
+    FE->>API: POST /orders/{id}/operations
+    API->>CCP: evaluate_ccp2(t_top, t_ca)
+    CCP-->>API: pending/pass/fail
+    API->>DB: INSERT operation_records
+    API-->>FE: OperationRecordOut
+
+%% Hình 3.10 — Hoàn thành mẻ, lô TP
+sequenceDiagram
+    actor KT as Kỹ thuật
+    participant FE as Production.tsx
+    participant API as production router
+    participant CCP as ccp.py
+    participant DB as SQLite
+    KT->>FE: Hoàn thành mẻ
+    FE->>API: POST /orders/{id}/complete
+    API->>CCP: Kiểm tra CCP2 pass
+    alt CCP2 pass
+        API->>DB: INSERT stock_batch TP
+        API->>DB: UPDATE output_batch_id, status=done
+        API-->>FE: 200 + lô TP
+    else CCP2 fail/pending
+        API-->>FE: 400 Chưa đạt CCP2
+    end
+
+%% Hình 3.11 — Kiểm nghiệm Lab
+sequenceDiagram
+    actor LB as Lab
+    participant FE as Lab.tsx
+    participant API as lab router
+    participant CCP as ccp.py
+    participant DB as SQLite
+    LB->>FE: Chọn lô/mẻ, nhập C14 hoặc % t-CA
+    FE->>API: POST /lab/tests
+    API->>DB: INSERT lab_tests
+    API->>CCP: evaluate_ccp1 hoặc evaluate_ccp2
+    API->>DB: UPDATE ccp1_status hoặc operation ccp2
+    API-->>FE: LabTestOut + badge pass/fail
+
+%% Hình 3.12 — Truy xuất 2 chiều
+sequenceDiagram
+    actor AT as ATTP
+    participant FE as Trace.tsx
+    participant API as reports router
+    participant DB as SQLite
+    AT->>FE: Gõ mã lô
+    FE->>API: GET /reports/trace-suggestions?q=
+    API-->>FE: Danh sách gợi ý
+    FE->>API: GET /reports/trace/{batch_no}
+    API->>DB: JOIN batches, usages, orders
+    API-->>FE: TraceResult cây NVL↔mẻ↔TP
+
+%% Hình 3.13 — Giám sát CCP 14 ngày
+sequenceDiagram
+    actor AT as ATTP
+    participant FE as Haccp.tsx
+    participant API as reports router
+    participant PDF as pdf_export.py
+    participant DB as SQLite
+    AT->>FE: Chọn khoảng ngày 14 ngày
+    FE->>API: GET /reports/haccp-monitor
+    API->>DB: Lọc CCP1/CCP2 theo ngày
+    API-->>FE: Bảng monitor
+    AT->>FE: Xuất PDF
+    FE->>API: GET /reports/haccp-monitor/export
+    API->>PDF: ReportLab DejaVu
+    API-->>FE: application/pdf
+
+%% Hình 3.14 — Nhật ký thao tác
+sequenceDiagram
+    actor AT as ATTP
+    participant FE as Audit.tsx
+    participant API as reports router
+    participant AD as audit_display.py
+    participant DB as SQLite
+    FE->>API: GET /reports/audit?from=&to=
+    API->>DB: SELECT audit_logs
+    API->>AD: Enrich tiếng Việt
+    API-->>FE: AuditLogOut[]
+    AT->>FE: Export PDF/CSV
+    FE->>API: GET export endpoints
+    API-->>FE: UTF-8 BOM / PDF
+
+%% Hình 3.15 — Hành động khắc phục CCP
+sequenceDiagram
+    actor AT as ATTP
+    participant FE as UI / API client
+    participant API as quality router
+    participant DB as SQLite
+    Note over API: Rule chặn issue/complete khi fail
+    AT->>FE: Ghi khắc phục
+    FE->>API: POST /quality/corrective-actions
+    API->>DB: INSERT corrective_actions
+    API->>DB: audit_logs
+    API-->>FE: CorrectiveActionOut
+
+%% Hình 3.16 — Hủy mẻ sản xuất
+sequenceDiagram
+    actor QL as QL NM / Kỹ thuật
+    participant FE as Production.tsx
+    participant API as production router
+    participant DB as SQLite
+    QL->>FE: Hủy mẻ
+    FE->>API: POST /orders/{id}/cancel
+    API->>DB: Kiểm tra status draft/approved/running
+    API->>DB: UPDATE status=cancelled
+    Note over API,DB: Không tạo lô TP
+    API-->>FE: ProductionOrderOut cancelled

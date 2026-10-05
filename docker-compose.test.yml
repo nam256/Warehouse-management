@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: oxeyns_test
+      POSTGRES_PASSWORD: oxeyns_test
+      POSTGRES_DB: oxeyns_test
+    ports:
+      - "5433:5432"
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U oxeyns_test -d oxeyns_test"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 5s

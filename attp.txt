@@ -1,0 +1,203 @@
+TÓM TẮT SỔ TAY CHẤT LƯỢNG AN TOÀN THỰC PHẨM (ATTP)
+Công ty TNHH Oxeyns - Chi nhánh Long An
+Nguồn: Sổ tay chất lượng ATTP.docx
+Tiêu chuẩn: FSSC 22000 (áp dụng từ 01/06/2023)
+
+================================================================================
+1. MỤC ĐÍCH VÀ PHẠM VI SỔ TAY
+================================================================================
+- Sổ tay ATTP thống nhất cấu trúc hệ thống quản lý an toàn thực phẩm theo FSSC 22000
+- Tuyên bố chính sách ATTP, xác định quy trình, mối tương tác, tiêu chí kiểm soát
+- Phục vụ đào tạo, đánh giá nội bộ, đối ngoại với khách hàng
+- Kiểm soát tài liệu theo quy trình QT-KSTL
+- Phạm vi sản phẩm: Sản xuất hương nguyên liệu thiên nhiên dùng trong thực phẩm
+- Sản phẩm chính: hương liệu nguyên chất từ tinh dầu quế (vd. t-Cinnamic Aldehyde)
+
+Cấu trúc: 10 chương theo tuần tự tiêu chuẩn FSSC 22000
+  Chương I–III  : Giới thiệu sổ tay, công ty, phạm vi áp dụng
+  Chương IV–X   : Chính sách và các quá trình HTQL ATTP
+
+Người phê duyệt:
+  - Soạn thảo : Nguyễn Tấn Thành (Phòng Lab)
+  - Xem xét   : Nguyễn Tấn Tài (Quản lý nhà máy)
+  - Phê duyệt : Andy Dương (Giám đốc)
+
+================================================================================
+2. GIỚI THIỆU CÔNG TY
+================================================================================
+- Tên       : Công ty TNHH Oxeyns – Chi nhánh tại Long An
+- Giám đốc  : Andy Duong
+- Trụ sở    : 113-115 Ung Văn Khiêm, Bình Thạnh, TP.HCM
+- Nhà xưởng : B7a, Kizuna 2, KCN Tân Kim, Cần Giuộc, Long An
+- Thành lập : 31/03/2017 | MST: 0312912805-001
+- Lĩnh vực  : Sản xuất nguyên liệu thiên nhiên, xuất khẩu
+- Công suất : Hệ thống chưng cất thủy tinh 5 tấn/năm (2017); thép 36 tấn/năm (2018)
+- Quy mô    : ~6 nhân sự, diện tích nhà xưởng 250 m² (số liệu trong sổ tay)
+
+================================================================================
+3. SƠ ĐỒ TỔ CHỨC VÀ CHỨC NĂNG CÁC BỘ PHẬN
+================================================================================
+
+                         GIÁM ĐỐC
+                             |
+            +----------------+----------------+
+            |                                 |
+       ĐỘI FSSC                      QUẢN LÝ NHÀ MÁY
+   (Ban ATTP/HACCP)                         |
+            |           +--------+--------+--------+--------+
+            |           |        |        |        |        |
+            |        PHÒNG   PHÒNG    THỦ    PHÒNG    PHÒNG
+            |         LAB   KỸ THUẬT  KHO  KINH DOANH NHÂN SỰ
+
+Chức năng chính:
+
+Quản lý nhà máy
+  - Điều hành vận hành SX, lập kế hoạch đào tạo, giám sát mục tiêu
+  - Kiểm soát tồn kho, báo cáo hàng tuần, quản lý dự án cải tiến
+
+Phòng Lab
+  - Vận hành máy GC, phân tích mẫu, báo cáo thí nghiệm
+  - Quản lý thiết bị, hóa chất, mẫu thử; bảo trì đơn vị sản xuất
+
+Phòng Kỹ thuật
+  - Điều hành quy trình SX, ghi dữ liệu sản xuất/mẫu
+  - Vệ sinh, bảo trì thiết bị; theo dõi tồn kho; đóng gói, dán nhãn
+
+Thủ kho
+  - Tiếp nhận, bảo quản, xuất nguyên liệu theo yêu cầu SX
+  - Lập phiếu yêu cầu mua hàng khi tồn kho đạt mức đặt hàng
+  - Kiểm tra SL sản phẩm, báo cáo tồn kho hàng tuần
+
+Phòng Kinh doanh
+  - Bán hàng, phát triển khách hàng, xử lý khiếu nại
+
+Phòng Nhân sự
+  - Tuyển dụng, đào tạo, quản lý hồ sơ nhân sự
+
+Đội FSSC / Ban ATTP (được nhắc xuyên suốt sổ tay)
+  - Thiết lập, duy trì, cập nhật HTQL ATTP
+  - Xây dựng HACCP, PRP/SSOP, phân tích mối nguy
+  - Tổ chức thẩm tra, đánh giá nội bộ, báo cáo Giám đốc
+
+================================================================================
+4. TÓM TẮT 10 CHƯƠNG NỘI DUNG
+================================================================================
+
+CHƯƠNG I – Giới thiệu sổ tay ATTP
+  Mục đích, cấu trúc, kiểm soát tài liệu, thuật ngữ (ATTP, STATTP, CSATTP, QLATTP...)
+
+CHƯƠNG II – Giới thiệu công ty
+  Thông tin doanh nghiệp, sơ đồ tổ chức, chức năng từng phòng ban
+
+CHƯƠNG III – Phạm vi áp dụng
+  HTQL ATTP FSSC 22000 áp dụng toàn công ty từ 01/06/2023
+  Sản phẩm: hương nguyên liệu thiên nhiên cho thực phẩm
+
+CHƯƠNG IV – Bối cảnh công ty
+  - Phân tích bối cảnh nội bộ/bên ngoài
+  - Nhu cầu các bên liên quan (KH, NCC, cơ quan quản lý...)
+  - Xác định phạm vi HTQL ATTP
+  - Quy trình SX: tiếp nhận KH → hợp đồng → mua hàng → SX → giao hàng → hậu mãi
+  - Tham chiếu: QT-RRCH (rủi ro và cơ hội)
+
+CHƯƠNG V – Vai trò lãnh đạo
+  - Giám đốc cam kết, thiết lập chính sách ATTP
+  - Ban ATTP chịu trách nhiệm vận hành HTQL ATTP
+  - Mọi nhân viên có trách nhiệm báo cáo vấn đề ATTP
+
+CHƯƠNG VI – Hoạch định
+  - Giải quyết rủi ro/cơ hội (QT-RRCH)
+  - Thiết lập mục tiêu ATTP đo lường được, giám sát, cập nhật
+  - Quản lý thay đổi hệ thống (nhân sự, quy trình...)
+
+CHƯƠNG VII – Công tác hỗ trợ
+  - Nguồn lực: nhân sự, cơ sở hạ tầng, môi trường làm việc
+  - Năng lực & đào tạo (QT-TDNS)
+  - Truyền thông nội bộ/bên ngoài
+  - Kiểm soát tài liệu (QT-KSTL)
+  - Kiểm soát NCC bên ngoài (QT-MH)
+  - Bảo trì thiết bị (QT-BTTB)
+
+CHƯƠNG VIII – Vận hành (CHƯƠNG TRỌNG TÂM)
+  8.1  Hoạch định và kiểm soát vận hành
+  8.2  PRP (SSOP): vệ sinh, nước, nhiễm chéo, côn trùng, hóa chất, sức khỏe CN...
+  8.3  Truy xuất nguồn gốc (TT-TVTH)
+  8.4  Ứng phó tình huống khẩn cấp (QT-THKC)
+  8.5  Kiểm soát mối nguy & HACCP:
+         - Thu thập thông tin NVL, sản phẩm, lưu đồ quy trình
+         - Phân tích mối nguy (vật lý, hóa học, sinh học)
+         - Phân loại OPRP / CCP
+         - Kế hoạch kiểm soát: giới hạn tới hạn, giám sát, khắc phục
+         - Tham chiếu: QT-HACCP
+  8.6  Cập nhật thông tin PRP và kế hoạch HACCP
+  8.7  Kiểm soát thiết bị đo/giám sát (QT-KSTB); xác nhận phần mềm giám sát
+  8.8  Thẩm tra PRP và HACCP (người thẩm tra ≠ người giám sát)
+  8.9  Xử lý không phù hợp, sản phẩm không an toàn, thu hồi/triệu hồi (QT-SPKPH, TT-TVTH)
+
+CHƯƠNG IX – Đánh giá hiệu suất
+  - Giám sát, đo lường, phân tích dữ liệu
+  - Đánh giá nội bộ (QT-ĐGNB)
+  - Xem xét của lãnh đạo (QT-XXLĐ)
+
+CHƯƠNG X – Cải tiến
+  - Hành động khắc phục (QT-HĐKP)
+  - Cải tiến liên tục hệ thống ATTP
+  - Cập nhật định kỳ HACCP, PRP theo kết quả thẩm tra và xem xét lãnh đạo
+
+================================================================================
+5. DANH MỤC QUY TRÌNH/THỦ TỤC THAM CHIẾU
+================================================================================
+  QT-KSTL  : Kiểm soát tài liệu
+  QT-RRCH  : Giải quyết rủi ro và cơ hội
+  QT-TDNS  : Tuyển dụng
+  QT-BTTB  : Bảo trì thiết bị
+  QT-MH    : Mua hàng
+  QT-HACCP : Lập kế hoạch HACCP
+  QT-KSTB  : Kiểm soát thiết bị đo
+  QT-THKC  : Quản lý tình huống/sự cố khẩn cấp
+  QT-SPKPH : Kiểm soát sản phẩm không phù hợp
+  QT-ĐGNB  : Đánh giá nội bộ
+  QT-XXLĐ  : Họp xem xét lãnh đạo
+  QT-HĐKP  : Hành động khắc phục
+  TT-TVTH  : Truy vết và triệu hồi sản phẩm
+  SSOP     : Các quy trình vệ sinh tiên quyết (nước, bề mặt, nhiễm chéo, côn trùng...)
+
+================================================================================
+6. QUY TRÌNH SẢN XUẤT TRONG HỆ THỐNG ATTP
+================================================================================
+Luồng quy trình chính (theo sổ tay):
+  Tiếp nhận thông tin KH → Ký hợp đồng → Mua hàng → Sản xuất → Giao hàng → Hậu mãi
+
+Luồng sản xuất thực tế (từ tài liệu liên quan):
+  Tiếp nhận NVL → Bảo quản → Chưng cất → Chiết rót → Phối trộn → Đóng gói (Nito)
+
+Điểm kiểm soát quan trọng (HACCP):
+  - CCP1: Kiểm tra nguyên liệu đầu vào (chỉ số C14)
+  - CCP2: Chưng cất (nhiệt độ đỉnh cột, hàm lượng t-CA)
+
+================================================================================
+7. YÊU CẦU GHI CHÉP & HỒ SƠ (LIÊN QUAN IT)
+================================================================================
+Hệ thống phải lưu trữ hồ sơ dạng văn bản cho:
+  - Giám sát CCP/OPRP, kết quả Lab (GC)
+  - Phiếu nhập/xuất kho, tồn kho hàng tuần/tháng
+  - Operation record, mixing report, cân đối vật tư
+  - Hiệu chuẩn thiết bị đo (nhiệt kế, áp suất...)
+  - Thẩm tra HACCP (14 ngày/lần tại CCP; nội bộ hàng năm)
+  - Khắc phục, hành động khắc phục, thu hồi/triệu hồi
+  - Đánh giá nội bộ, biên bản xem xét lãnh đạo
+
+Sổ tay yêu cầu (mục 8.7): Phần mềm giám sát/đo lường phải được xác nhận giá trị
+sử dụng trước khi áp dụng; mọi thay đổi cấu hình phần mềm phải được ghi nhận.
+
+================================================================================
+8. Ý NGHĨA ĐỐI VỚI ĐỀ TÀI IT
+================================================================================
+Sổ tay ATTP là khung tổng thể cho hệ thống quản lý SX & kho tinh dầu:
+
+- Xác định rõ 6 phòng + Đội FSSC và vai trò từng bộ phận
+- Quy định luồng dữ liệu bắt buộc: kho ↔ SX ↔ Lab ↔ ATTP
+- Liệt kê ~14 quy trình/thủ tục cần số hóa (QT-xx, SSOP, biểu mẫu BM-xx)
+- Nêu yêu cầu truy xuất nguồn gốc lô hàng, tồn kho, thu hồi sản phẩm
+- Cơ hội IT: quản lý tài liệu điện tử (QT-KSTL), cảnh báo CCP, tích hợp GC/Lab,
+  dashboard tồn kho, workflow phê duyệt, audit trail cho thẩm tra FSSC 22000

@@ -1,0 +1,51 @@
+1. Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+2. Error: Lỗi API
+    at request (api.ts:148:11)
+    at async Promise.all (index 0)
+api/v1/production/orders:1  Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+3. Failed to load resource: the server responded with a status of 404 (Not Found)
+4. Lỗi trợ lý AI đang tắt
+5. api.ts:142  POST http://localhost:5173/api/v1/assistant/ask 400 (Bad Request)
+6. Failed to load resource: the server responded with a status of 400 (Bad Request)
+7. api.ts:513  GET http://localhost:5173/api/v1/quality/batches/15/certificate.pdf 400 (Bad Request)
+8. api/v1/quality/batches/4/transition:1  
+9. sửa giao diện phù hợp với điện thoại khi dùng web bằng điện thoại
+10. làm chức năng bật sáng tối giao diện cả cùng trên web lẫn điện thoại nha 
+11. thêm chức năng tìm kiếm sản phẩm trong mục tồn kho 
+12. chỉnh lại giao diện bảng tồn kho, báo cáo tồn kho, phê duyệt chất lượng, nhật ký thao tác nhìn cho đẹp ký chỉnh kiểu chữ lại dễ nhìn 
+13. bảng tồn kho phải kéo qua kéo lại mới coi hết làm ảnh hưởng đến người dùng ở bảng sài web và mobie
+14. chỉnh lại kích thước chữ mục tiêu đề, mục nội dung, muc khác nó hợp lý
+15. cho chữ ai đăng nhập lên đầu trang web cho dễ biết, bố trí cho đẹp 
+16. tất cả dữ liệu trong db đều là tiếng việt có dấu, không được có cái có dấu có cái không dấu — DONE (seed chuẩn hóa + cập nhật DB hiện có)
+17. xóa dữ liệu test trong db, và cho dữ liệu về lúc ban đầu chưa sử dụng — DONE (py reset_db.py)
+18. tồn kho hay nhật ký thao tác nếu sài một thời gian dữ liệu sẽ quá nhiều web sử dụng sẽ hiễn thị nhiều vaayj làm cách nào khắc phục — DONE (phân trang tồn kho 20/trang, nhật ký 25/trang + lọc ngày)
+19. chuông thông báo khi hết nguyên liệu / tồn thấp / không đạt chất lượng — DONE (chuông topbar, phân quyền theo vai trò, làm mới 60s)
+20. tiếp tục chỉnh giao diện xuất kho, sản xuất, kiểm nghiệm, phê duyệt chất lượng, khắc phục sai lệch, truy xuất lô, yêu cầu mua hàng, giám sát kiểm soát, nhật ký thao tác, báo cáo và xuất file sao cho chuyên nghiệp trên web và mobie — DONE (ops-summary, form/preview, mobile cards, sticky actions)
+21. Failed to load resource: the server responded with a status of 404 (Not Found)
+client:882 [vite] 
+22. Failed to reload /src/components/NavIcons.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above — DONE (file tạm NavIcons đã xóa, không còn import; CSS brace đã ổn, build pass — F5/Ctrl+Shift+R nếu HMR còn kẹt)
+23 .client:815 WebSocket connection to 'ws://localhost:5173/?token=FxiOk2BRGHP9' failed: Error during WebSocket handshake: Unexpected response code: 400
+(anonymous) @ client:815
+client:830 [vite] failed to connect to websocket.
+your current setup:
+  (browser) localhost:5173/ <--[HTTP]--> localhost:5173/ (server)
+  (browser) localhost:5173/ <--[WebSocket (failing)]--> localhost:5173/ (server)
+Check out your Vite / network configuration and https://vite.dev/config/server-options.html#server-hmr .
+24.  bấm nút chọn để mua thì nó phải chuyển hướng thao tác
+25. chưa xuất mà sao đã có 10kg
+26. ô box chat có thể dùng chuột để duy chuyển 
+27. ghi lại nội dung rõ ràng 
+28. báo cáo và xuất file là chức năng quan trọng để hỏi trong bài báo cáo của tôi tôi muốn bạn lập baocaoxuatkho.md suy nghĩ tất cả trường hợp để lập thêm kế hoạch hoàn thiện chức năng một cách chuẩn nhất về tồn kho và xuất kho và mọi khả năng sảy ra trong lúc làm việc 
+29. api/v1/reports/inven…-01&to=2026-09-29:1 
+ Failed to load resource: the server responded with a status of 400 (Bad Request)
+react-dom_client.js?v=370fe13f:6999 ReferenceError: selectedBatch is not defined
+    at Reports (Reports.tsx?t=1790162944422:169:54)
+
+
+The above error occurred in the <Reports> component.
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary.
+30. bạn dạy cho con chatbox trả lời tất cả trường hợp về chức năng báo cáo xuất kho đi
+31. bạn tạo chatbox.md để lập kế hoạch code , test, và tránh lỗi trả lời lung tung không đúng trọng tâm và cho nó gợi ý câu hỏi cái này rất dễ bị hỏi trong báo cao không nên sai, ví dụ tắc chat rồi nó có bị mất không hay tạo chat mới bạn làm nghiêm túc dùm
+
+32. bạn nghĩ chức năng cảnh báo cái chuông , cần cảnh báo thêm gì nữa không , nếu có thì làm luôn , lúc nó cảnh báo cái chuông nó kêu với rung nha

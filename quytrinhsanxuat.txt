@@ -1,0 +1,61 @@
+TÓM TẮT QUY TRÌNH SẢN XUẤT t-CINNAMIC ALDEHYDE
+Công ty TNHH Oxeyns - Chi nhánh Long An
+Nguồn: OXEYNS - Quy trinh san xuat t-cinnamic aldehyde.docx
+Ban hành: 13/03/2019
+
+================================================================================
+1. THÔNG TIN CHUNG
+================================================================================
+- Đơn vị: Công ty TNHH Oxeyns - Chi nhánh Long An
+- Tài liệu: Quy trình sản xuất t-Cinnamic Aldehyde
+- Mô tả tổng quát: Từ nguyên liệu dầu quế, qua chưng cất thu được thành phẩm t-Cinnamic Aldehyde
+
+================================================================================
+2. SƠ ĐỒ QUY TRÌNH SẢN XUẤT (6 CÔNG ĐOẠN)
+================================================================================
+
+  [1] TIẾP NHẬN NGUYÊN LIỆU
+        ↓
+  [2] BẢO QUẢN NGUYÊN LIỆU Ở NHIỆT ĐỘ PHÒNG
+        ↓
+  [3] CHƯNG CẤT BẰNG ÁP SUẤT CHÂN KHÔNG
+        ↓
+  [4] CHIẾT RÓT
+        ↓
+  [5] PHỐI TRỘN
+        ↓
+  [6] ĐÓNG CAN, BƠM NITO, DÁN NHÃN, BẢO QUẢN Ở NHIỆT ĐỘ PHÒNG
+
+================================================================================
+3. THÔNG SỐ VẬN HÀNH CHÍNH (GHI TRÊN SƠ ĐỒ)
+================================================================================
+- Thời gian chạy mẻ sản xuất : 32 – 37 giờ
+- Nhiệt độ (T)                    : 108°C – 115°C
+- Áp suất chân không (P)          : (-0.99) – (-0.10) MPa
+
+================================================================================
+4. VẬT TƯ LIÊN QUAN
+================================================================================
+- Nguyên liệu đầu vào : Dầu quế (tinh dầu quế)
+- Thành phẩm          : t-Cinnamic Aldehyde
+- Bao bì/vật tư       : Can, Nhãn
+
+================================================================================
+5. GHI CHÚ
+================================================================================
+- Tài liệu này là sơ đồ quy trình tổng quan (flowchart), không mô tả chi tiết
+  từng bước thao tác, biểu mẫu hay tiêu chí kiểm tra chất lượng.
+- Quy trình tập trung vào chưng cất chân không để tách t-Cinnamic Aldehyde
+  từ dầu quế, sau đó chiết rót, phối trộn và đóng gói với khí Nito để bảo quản.
+- Bảo quản nguyên liệu và thành phẩm đều ở nhiệt độ phòng, tránh tiếp xúc
+  không khí (bơm Nito khi đóng can).
+
+================================================================================
+6. LIÊN HỆ VỚI TÀI LIỆU HACCP (THAM KHẢO)
+================================================================================
+So với Chương trình thẩm tra HACCP, quy trình này khớp với dây chuyền chính
+nhưng đơn giản hóa (không tách nhánh bán thành phẩm/thành phẩm thô). HACCP
+bổ sung thêm chi tiết kỹ thuật như:
+- Nhiệt độ đỉnh cột chưng cất: 107–110°C (HACCP) vs 108–115°C (quy trình này)
+- Gia nhiệt nguyên liệu: 130–150°C trước khi chưng cất
+- Kiểm tra chất lượng tại tiếp nhận và các điểm CCP

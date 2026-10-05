@@ -1,0 +1,30 @@
+Oxeyns Digital QMS baseline
+Date: 2026-07-18
+
+Environment
+- Python launcher: py
+- Python version: 3.13.3
+- Backend dependencies installed from backend/requirements.txt
+- SQLite file backend/oxeyns.db: not present; no backup required
+- Git repository: not initialized; no baseline commit created
+
+Backend
+Command: py -m pytest tests -q --tb=line
+Result: PASS
+Tests: 17 passed
+Duration: 12.57s
+Warnings: 4
+- Pydantic class-based Config deprecation in app/config.py
+- datetime.utcnow deprecation in production approve/start/complete handlers
+
+Frontend
+Command: npm run build
+Result: PASS
+- TypeScript build succeeded
+- Vite build succeeded
+- 60 modules transformed
+
+Gate G0
+PASS with two documented N/A items:
+- No SQLite database file existed to back up
+- Project directory was not a Git repository

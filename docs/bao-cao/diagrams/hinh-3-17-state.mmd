@@ -1,0 +1,20 @@
+%% Hình 3.17 — State machine mẻ sản xuất
+stateDiagram-v2
+    [*] --> draft: POST /production/orders
+    draft --> approved: POST .../approve
+    approved --> running: POST .../start
+    running --> done: POST .../complete\n(CCP2 pass)
+    draft --> cancelled: POST .../cancel
+    approved --> cancelled: POST .../cancel
+    running --> cancelled: POST .../cancel
+    done --> [*]
+    cancelled --> [*]
+
+    note right of running
+        Xuất NVL qua
+        production_material_usages
+    end note
+    note right of done
+        Tạo stock_batch TP
+        output_batch_id
+    end note

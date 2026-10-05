@@ -1,0 +1,6 @@
+thầy kêu nộp đề cương luận văn càng sớm càng tốt viết ngắn gọn yêu tiên phàn 
+6.	Kết quả dự kiến đạt được
+-	Thiết kế được phần mềm gì.
+-	Viết được khóa luận theo yêu cầu của Khoa Công nghệ thông tin, Trường Đại Học Tài nguyên Và Môi trường TP. Hồ Chí Minh.
+
+1. chắc chắn đầy đủ chưa có tất cả chức năng luận văn đã làm và nêu điểm nâng cấp với thực tập 

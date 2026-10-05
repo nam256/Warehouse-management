@@ -1,0 +1,31 @@
+%% Hình 3.2 — Use case tổng quát (11 menu, 6 vai trò)
+flowchart LR
+    subgraph Actors
+        AD((Admin))
+        TK((Thủ kho))
+        KT((Kỹ thuật))
+        LB((Lab))
+        QL((QL NM))
+        AT((ATTP))
+    end
+
+    subgraph System["Oxeyns Kho & SX"]
+        UC1[Bảng tổng quan]
+        UC2[Tồn kho]
+        UC3[Nhập kho]
+        UC4[Xuất kho]
+        UC5[Sản xuất]
+        UC6[Kiểm nghiệm]
+        UC7[Truy xuất lô]
+        UC8[Yêu cầu mua hàng]
+        UC9[Giám sát CCP]
+        UC10[Nhật ký thao tác]
+        UC11[Báo cáo xuất file]
+    end
+
+    AD --> UC1 & UC2 & UC3 & UC4 & UC5 & UC6 & UC7 & UC8 & UC9 & UC10 & UC11
+    TK --> UC1 & UC2 & UC3 & UC4 & UC8
+    KT --> UC5
+    LB --> UC6
+    QL --> UC1 & UC2 & UC3 & UC4 & UC5 & UC6 & UC7 & UC8 & UC9
+    AT --> UC1 & UC2 & UC3 & UC4 & UC5 & UC6 & UC7 & UC9 & UC10 & UC11
